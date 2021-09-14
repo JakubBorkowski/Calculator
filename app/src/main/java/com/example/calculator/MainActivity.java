@@ -1,5 +1,7 @@
 package com.example.calculator;
 
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView screen, prev;
     private float num1, num2 = 0;
     private char sign = 0;
-    private int e = 0;
+    private boolean equal = false; //If true then the "equal" button will repeat the last operation.
 
 
     @Override
@@ -23,16 +25,18 @@ public class MainActivity extends AppCompatActivity {
         sign = savedInstanceState.getChar("sign");
         screen.setText(savedInstanceState.getString("screen"));
         prev.setText(savedInstanceState.getString("prev"));
+        equal = savedInstanceState.getBoolean("equal");
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putFloat("num1", num1);
         outState.putFloat("num2", num2);
         outState.putChar("sign", sign);
         outState.putString("screen", screen.getText().toString());
         outState.putString("prev", prev.getText().toString());
+        outState.putBoolean("equal", equal);
     }
 
     @Override
@@ -55,17 +59,17 @@ public class MainActivity extends AppCompatActivity {
         button1b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(e == 1){
+                if(equal){
                     num1 = 0;
                     num2 = 0;
                     sign = 0;
-                    e = 0;
+                    equal = false;
                     prev.setText("");
                 }
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
                     screen.setText("-" + button1b.getText().toString());
                 }//I - Infinity, N - NaN
-                else if (e == 1 || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
+                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
                     screen.setText(button1b.getText().toString());
                 else
                     screen.setText((screen.getText().toString()) + (button1b.getText().toString()));
@@ -76,17 +80,17 @@ public class MainActivity extends AppCompatActivity {
         button2b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(e==1){
+                if(equal){
                     num1 = 0;
                     num2 = 0;
                     sign = 0;
-                    e = 0;
+                    equal = false;
                     prev.setText("");
                 }
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
                     screen.setText("-" + button2b.getText().toString());
                 }//I - Infinity, N - NaN
-                else if (e == 1 || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
+                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
                     screen.setText(button2b.getText().toString());
                 else
                     screen.setText((screen.getText().toString()) + (button2b.getText().toString()));
@@ -97,17 +101,17 @@ public class MainActivity extends AppCompatActivity {
         button3b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(e==1){
+                if(equal){
                     num1 = 0;
                     num2 = 0;
                     sign = 0;
-                    e = 0;
+                    equal = false;
                     prev.setText("");
                 }
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
                     screen.setText("-" + button3b.getText().toString());
                 }//I - Infinity, N - NaN
-                else if (e == 1 || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
+                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
                     screen.setText(button3b.getText().toString());
                 else
                     screen.setText((screen.getText().toString()) + (button3b.getText().toString()));
@@ -118,17 +122,17 @@ public class MainActivity extends AppCompatActivity {
         button4b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(e==1){
+                if(equal){
                     num1 = 0;
                     num2 = 0;
                     sign = 0;
-                    e = 0;
+                    equal = false;
                     prev.setText("");
                 }//I - Infinity, N - NaN
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
                     screen.setText("-" + button4b.getText().toString());
                 }//I - Infinity, N - NaN
-                else if (e == 1 || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
+                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
                     screen.setText(button4b.getText().toString());
                 else
                     screen.setText((screen.getText().toString()) + (button4b.getText().toString()));
@@ -139,17 +143,17 @@ public class MainActivity extends AppCompatActivity {
         button5b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(e==1){
+                if(equal){
                     num1 = 0;
                     num2 = 0;
                     sign = 0;
-                    e = 0;
+                    equal = false;
                     prev.setText("");
                 }
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
                     screen.setText("-" + button5b.getText().toString());
                 }//I - Infinity, N - NaN
-                else if (e == 1 || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
+                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
                     screen.setText(button5b.getText().toString());
                 else
                     screen.setText((screen.getText().toString()) + (button5b.getText().toString()));
@@ -160,17 +164,17 @@ public class MainActivity extends AppCompatActivity {
         button6b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(e==1){
+                if(equal){
                     num1 = 0;
                     num2 = 0;
                     sign = 0;
-                    e = 0;
+                    equal = false;
                     prev.setText("");
                 }
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
                     screen.setText("-" + button6b.getText().toString());
                 }//I - Infinity, N - NaN
-                else if (e == 1 || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
+                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
                     screen.setText(button6b.getText().toString());
                 else
                     screen.setText((screen.getText().toString()) + (button6b.getText().toString()));;
@@ -181,17 +185,17 @@ public class MainActivity extends AppCompatActivity {
         button7b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(e==1){
+                if(equal){
                     num1 = 0;
                     num2 = 0;
                     sign = 0;
-                    e = 0;
+                    equal = false;
                     prev.setText("");
                 }
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
                     screen.setText("-" + button7b.getText().toString());
                 }//I - Infinity, N - NaN
-                else if (e == 1 || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
+                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
                     screen.setText(button7b.getText().toString());
                 else
                     screen.setText((screen.getText().toString()) + (button7b.getText().toString()));
@@ -202,17 +206,17 @@ public class MainActivity extends AppCompatActivity {
         button8b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(e==1){
+                if(equal){
                     num1 = 0;
                     num2 = 0;
                     sign = 0;
-                    e = 0;
+                    equal = false;
                     prev.setText("");
                 }
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
                     screen.setText("-" + button8b.getText().toString());
                 }//I - Infinity, N - NaN
-                else if (e == 1 || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
+                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
                     screen.setText(button8b.getText().toString());
                 else
                     screen.setText((screen.getText().toString()) + (button8b.getText().toString()));
@@ -223,17 +227,17 @@ public class MainActivity extends AppCompatActivity {
         button9b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(e==1){
+                if(equal){
                     num1 = 0;
                     num2 = 0;
                     sign = 0;
-                    e = 0;
+                    equal = false;
                     prev.setText("");
                 }
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
                     screen.setText("-" + button9b.getText().toString());
                 }//I - Infinity, N - NaN
-                else if (e == 1 || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
+                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
                     screen.setText(button9b.getText().toString());
                 else
                     screen.setText((screen.getText().toString()) + (button9b.getText().toString()));
@@ -244,17 +248,17 @@ public class MainActivity extends AppCompatActivity {
         button0b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(e==1){
+                if(equal){
                     num1 = 0;
                     num2 = 0;
                     sign = 0;
-                    e = 0;
+                    equal = false;
                     prev.setText("");
                 }
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
                     screen.setText("-" + button0b.getText().toString());
                 }//I - Infinity, N - NaN
-                else if (e == 1 || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N")){
+                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N")){
                     screen.setText(button0b.getText().toString());
                 }
                 else
@@ -266,17 +270,17 @@ public class MainActivity extends AppCompatActivity {
         button00b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(e==1){
+                if(equal){
                     num1 = 0;
                     num2 = 0;
                     sign = 0;
-                    e = 0;
+                    equal = false;
                     prev.setText("");
                 }
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".") || screen.getText().toString().equals("-")){
                     screen.setText("-" + button0b.getText().toString());
                 }//I - Infinity, N - NaN
-                else if (e == 1 || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N")){
+                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N")){
                     screen.setText(button0b.getText().toString());
                 }
                 else
@@ -290,11 +294,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String current = screen.getText().toString();
                 if  (!current.isEmpty()&&!current.equals("0")){
-                    if(e==1){
+                    if(equal){
                         num1 = 0;
                         num2 = 0;
                         sign = 0;
-                        e = 0;
+                        equal = false;
                         prev.setText("");
                     }//I - Infinity, N - NaN
                     if (current.contains("I") || current.contains("N") || current.contains("E") || current.equals("-"))
@@ -314,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
                 num1 = 0;
                 num2 = 0;
                 sign = 0;
-                e = 0;
+                equal = false;
             }
         });
 
@@ -324,11 +328,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String current = screen.getText().toString();
                 if  (!current.isEmpty()){
-                    if(e == 1){
+                    if(equal){
                         num1 = 0;
                         num2 = 0;
                         sign = 0;
-                        e = 0;
+                        equal = false;
                         prev.setText("");
                     }
                     if (current.substring(0, 1).contains("-"))
@@ -347,7 +351,7 @@ public class MainActivity extends AppCompatActivity {
                 if  (!current.isEmpty() && !current.equals("-")){
                     num1 = Float.parseFloat(current);
                     sign = '+';
-                    e = 0;
+                    equal = false;
                     screen.setText("");
                     prev.setText(String.valueOf(num1) + "+");
                 }
@@ -362,7 +366,7 @@ public class MainActivity extends AppCompatActivity {
                 if  (!current.isEmpty() && !current.equals("-")){
                     num1 = Float.parseFloat(current);
                     sign = '-';
-                    e = 0;
+                    equal = false;
                     screen.setText("");
                     prev.setText(String.valueOf(num1) + "-");
                 }
@@ -377,7 +381,7 @@ public class MainActivity extends AppCompatActivity {
                 if  (!current.isEmpty() && !current.equals("-")){
                     num1 = Float.parseFloat(current);
                     sign = '*';
-                    e = 0;
+                    equal = false;
                     screen.setText("");
                     prev.setText(String.valueOf(num1) + "*");
                 }
@@ -393,7 +397,7 @@ public class MainActivity extends AppCompatActivity {
                 if  (!current.isEmpty() && !current.equals("-")){
                     num1 = Float.parseFloat(current);
                     sign = '/';
-                    e = 0;
+                    equal = false;
                     screen.setText("");
                     prev.setText(String.valueOf(num1) + "/");
                 }
@@ -423,7 +427,7 @@ public class MainActivity extends AppCompatActivity {
                 if  (!current.isEmpty() && !current.equals("-")) {
                     num1 = Float.parseFloat(current);
                     sign = '^';
-                    e = 0;
+                    equal = false;
                     screen.setText("");
                     prev.setText(String.valueOf(num1) + "^");
                 }
@@ -435,7 +439,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String current = screen.getText().toString();
-                if(e==1){
+                if(equal){
                     num1 = 0;
                     num2 = 0;
                     sign = 0;
@@ -461,7 +465,7 @@ public class MainActivity extends AppCompatActivity {
                 if  (current.isEmpty() || sign == 0)
                     screen.setText(current);
                 else {
-                    if (e == 0)
+                    if (!equal)
                         num2 = Float.parseFloat(current);
                     float res = 0;
                     switch(sign){
@@ -493,7 +497,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     num1 = res;
                     screen.setText(String.valueOf(res));
-                    e = 1;
+                    equal = true;
                 }
             }
         });
