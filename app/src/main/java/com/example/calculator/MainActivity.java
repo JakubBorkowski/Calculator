@@ -67,12 +67,12 @@ public class MainActivity extends AppCompatActivity {
                     prev.setText("");
                 }
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
-                    screen.setText("-" + button1b.getText().toString());
+                    screen.setText("-1");
                 }//I - Infinity, N - NaN
                 else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
-                    screen.setText(button1b.getText().toString());
+                    screen.setText("1");
                 else
-                    screen.setText((screen.getText().toString()) + (button1b.getText().toString()));
+                    screen.setText((screen.getText().toString()) + "1");
             }
         });
 
@@ -88,12 +88,12 @@ public class MainActivity extends AppCompatActivity {
                     prev.setText("");
                 }
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
-                    screen.setText("-" + button2b.getText().toString());
+                    screen.setText("-2");
                 }//I - Infinity, N - NaN
                 else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
-                    screen.setText(button2b.getText().toString());
+                    screen.setText("2");
                 else
-                    screen.setText((screen.getText().toString()) + (button2b.getText().toString()));
+                    screen.setText((screen.getText().toString()) + "2");
             }
         });
 
@@ -109,12 +109,12 @@ public class MainActivity extends AppCompatActivity {
                     prev.setText("");
                 }
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
-                    screen.setText("-" + button3b.getText().toString());
+                    screen.setText("-3");
                 }//I - Infinity, N - NaN
                 else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
                     screen.setText(button3b.getText().toString());
                 else
-                    screen.setText((screen.getText().toString()) + (button3b.getText().toString()));
+                    screen.setText((screen.getText().toString()) + "3");
             }
         });
 
@@ -130,12 +130,12 @@ public class MainActivity extends AppCompatActivity {
                     prev.setText("");
                 }//I - Infinity, N - NaN
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
-                    screen.setText("-" + button4b.getText().toString());
+                    screen.setText("-4");
                 }//I - Infinity, N - NaN
                 else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
                     screen.setText(button4b.getText().toString());
                 else
-                    screen.setText((screen.getText().toString()) + (button4b.getText().toString()));
+                    screen.setText((screen.getText().toString()) + "4");
             }
         });
 
@@ -151,12 +151,12 @@ public class MainActivity extends AppCompatActivity {
                     prev.setText("");
                 }
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
-                    screen.setText("-" + button5b.getText().toString());
+                    screen.setText("-5");
                 }//I - Infinity, N - NaN
                 else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
-                    screen.setText(button5b.getText().toString());
+                    screen.setText("5");
                 else
-                    screen.setText((screen.getText().toString()) + (button5b.getText().toString()));
+                    screen.setText((screen.getText().toString()) + "5");
             }
         });
 
@@ -172,12 +172,12 @@ public class MainActivity extends AppCompatActivity {
                     prev.setText("");
                 }
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
-                    screen.setText("-" + button6b.getText().toString());
+                    screen.setText("-6");
                 }//I - Infinity, N - NaN
                 else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
-                    screen.setText(button6b.getText().toString());
+                    screen.setText("6");
                 else
-                    screen.setText((screen.getText().toString()) + (button6b.getText().toString()));;
+                    screen.setText((screen.getText().toString()) + "6");;
             }
         });
 
@@ -193,12 +193,12 @@ public class MainActivity extends AppCompatActivity {
                     prev.setText("");
                 }
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
-                    screen.setText("-" + button7b.getText().toString());
+                    screen.setText("-7");
                 }//I - Infinity, N - NaN
                 else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
-                    screen.setText(button7b.getText().toString());
+                    screen.setText("7");
                 else
-                    screen.setText((screen.getText().toString()) + (button7b.getText().toString()));
+                    screen.setText((screen.getText().toString()) + "7");
             }
         });
 
@@ -214,12 +214,12 @@ public class MainActivity extends AppCompatActivity {
                     prev.setText("");
                 }
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
-                    screen.setText("-" + button8b.getText().toString());
+                    screen.setText("-8");
                 }//I - Infinity, N - NaN
                 else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
-                    screen.setText(button8b.getText().toString());
+                    screen.setText("8");
                 else
-                    screen.setText((screen.getText().toString()) + (button8b.getText().toString()));
+                    screen.setText((screen.getText().toString()) + "8");
             }
         });
 
@@ -235,12 +235,12 @@ public class MainActivity extends AppCompatActivity {
                     prev.setText("");
                 }
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
-                    screen.setText("-" + button9b.getText().toString());
+                    screen.setText("-9");
                 }//I - Infinity, N - NaN
                 else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
-                    screen.setText(button9b.getText().toString());
+                    screen.setText("9");
                 else
-                    screen.setText((screen.getText().toString()) + (button9b.getText().toString()));
+                    screen.setText((screen.getText().toString()) + "9");
             }
         });
 
@@ -256,13 +256,13 @@ public class MainActivity extends AppCompatActivity {
                     prev.setText("");
                 }
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
-                    screen.setText("-" + button0b.getText().toString());
+                    screen.setText("-0");
                 }//I - Infinity, N - NaN
                 else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N")){
-                    screen.setText(button0b.getText().toString());
+                    screen.setText("0");
                 }
                 else
-                    screen.setText((screen.getText().toString()) + (button0b.getText().toString()));
+                    screen.setText((screen.getText().toString()) + "0");
             }
         });
 
@@ -278,13 +278,13 @@ public class MainActivity extends AppCompatActivity {
                     prev.setText("");
                 }
                 if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".") || screen.getText().toString().equals("-")){
-                    screen.setText("-" + button0b.getText().toString());
+                    screen.setText("-0");
                 }//I - Infinity, N - NaN
-                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N")){
-                    screen.setText(button0b.getText().toString());
+                else if (equal || screen.getText().toString().equals("0") || screen.getText().toString().equals("") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N")){
+                    screen.setText("0");
                 }
                 else
-                    screen.setText((screen.getText().toString()) + (button00b.getText().toString()));
+                    screen.setText((screen.getText().toString()) + "00");
             }
         });
 
