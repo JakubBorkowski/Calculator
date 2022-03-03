@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,8 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView screen, prev;
     private float num1, num2 = 0;
     private char sign = 0;
-    private boolean equal = false; //If true then the "equal" button will repeat the last operation.
-
+    private boolean repeat = false; //If true then the "equal" button will repeat the last operation.
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
@@ -25,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         sign = savedInstanceState.getChar("sign");
         screen.setText(savedInstanceState.getString("screen"));
         prev.setText(savedInstanceState.getString("prev"));
-        equal = savedInstanceState.getBoolean("equal");
+        repeat = savedInstanceState.getBoolean("repeat");
     }
 
     @Override
@@ -36,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         outState.putChar("sign", sign);
         outState.putString("screen", screen.getText().toString());
         outState.putString("prev", prev.getText().toString());
-        outState.putBoolean("equal", equal);
+        outState.putBoolean("repeat", repeat);
     }
 
     @Override
@@ -44,462 +42,317 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
+        screen = findViewById(R.id.textView);
+        prev = findViewById(R.id.textView2);
 
-
-
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearLayout3);
-        int height = linearLayout.getHeight();
-
-
-
-        screen = (TextView)findViewById(R.id.textView);
-        prev = (TextView)findViewById(R.id.textView2);
-
-        final Button button1b = (Button) findViewById(R.id.button1);
+        final Button button1b = findViewById(R.id.button1);
         button1b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(equal){
-                    num1 = 0;
-                    num2 = 0;
-                    sign = 0;
-                    equal = false;
-                    prev.setText("");
-                }
-                if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
-                    screen.setText("-1");
-                }//I - Infinity, N - NaN
-                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
-                    screen.setText("1");
-                else
-                    screen.setText((screen.getText().toString()) + "1");
+                writeOnScreen(button1b);
             }
         });
 
-        final Button button2b = (Button) findViewById(R.id.button2);
+        final Button button2b = findViewById(R.id.button2);
         button2b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(equal){
-                    num1 = 0;
-                    num2 = 0;
-                    sign = 0;
-                    equal = false;
-                    prev.setText("");
-                }
-                if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
-                    screen.setText("-2");
-                }//I - Infinity, N - NaN
-                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
-                    screen.setText("2");
-                else
-                    screen.setText((screen.getText().toString()) + "2");
+                writeOnScreen(button2b);
             }
         });
 
-        final Button button3b = (Button) findViewById(R.id.button3);
+        final Button button3b = findViewById(R.id.button3);
         button3b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(equal){
-                    num1 = 0;
-                    num2 = 0;
-                    sign = 0;
-                    equal = false;
-                    prev.setText("");
-                }
-                if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
-                    screen.setText("-3");
-                }//I - Infinity, N - NaN
-                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
-                    screen.setText(button3b.getText().toString());
-                else
-                    screen.setText((screen.getText().toString()) + "3");
+                writeOnScreen(button3b);
             }
         });
 
-        final Button button4b = (Button) findViewById(R.id.button4);
+        final Button button4b = findViewById(R.id.button4);
         button4b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(equal){
-                    num1 = 0;
-                    num2 = 0;
-                    sign = 0;
-                    equal = false;
-                    prev.setText("");
-                }//I - Infinity, N - NaN
-                if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
-                    screen.setText("-4");
-                }//I - Infinity, N - NaN
-                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
-                    screen.setText(button4b.getText().toString());
-                else
-                    screen.setText((screen.getText().toString()) + "4");
+                writeOnScreen(button4b);
             }
         });
 
-        final Button button5b = (Button) findViewById(R.id.button5);
+        final Button button5b = findViewById(R.id.button5);
         button5b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(equal){
-                    num1 = 0;
-                    num2 = 0;
-                    sign = 0;
-                    equal = false;
-                    prev.setText("");
-                }
-                if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
-                    screen.setText("-5");
-                }//I - Infinity, N - NaN
-                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
-                    screen.setText("5");
-                else
-                    screen.setText((screen.getText().toString()) + "5");
+                writeOnScreen(button5b);
             }
         });
 
-        final Button button6b = (Button) findViewById(R.id.button6);
+        final Button button6b = findViewById(R.id.button6);
         button6b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(equal){
-                    num1 = 0;
-                    num2 = 0;
-                    sign = 0;
-                    equal = false;
-                    prev.setText("");
-                }
-                if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
-                    screen.setText("-6");
-                }//I - Infinity, N - NaN
-                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
-                    screen.setText("6");
-                else
-                    screen.setText((screen.getText().toString()) + "6");;
+                writeOnScreen(button6b);
             }
         });
 
-        final Button button7b = (Button) findViewById(R.id.button7);
+        final Button button7b = findViewById(R.id.button7);
         button7b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(equal){
-                    num1 = 0;
-                    num2 = 0;
-                    sign = 0;
-                    equal = false;
-                    prev.setText("");
-                }
-                if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
-                    screen.setText("-7");
-                }//I - Infinity, N - NaN
-                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
-                    screen.setText("7");
-                else
-                    screen.setText((screen.getText().toString()) + "7");
+                writeOnScreen(button7b);
             }
         });
 
-        final Button button8b = (Button) findViewById(R.id.button8);
+        final Button button8b = findViewById(R.id.button8);
         button8b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(equal){
-                    num1 = 0;
-                    num2 = 0;
-                    sign = 0;
-                    equal = false;
-                    prev.setText("");
-                }
-                if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
-                    screen.setText("-8");
-                }//I - Infinity, N - NaN
-                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
-                    screen.setText("8");
-                else
-                    screen.setText((screen.getText().toString()) + "8");
+                writeOnScreen(button8b);
             }
         });
 
-        final Button button9b = (Button) findViewById(R.id.button9);
+        final Button button9b = findViewById(R.id.button9);
         button9b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(equal){
-                    num1 = 0;
-                    num2 = 0;
-                    sign = 0;
-                    equal = false;
-                    prev.setText("");
-                }
-                if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
-                    screen.setText("-9");
-                }//I - Infinity, N - NaN
-                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N"))
-                    screen.setText("9");
-                else
-                    screen.setText((screen.getText().toString()) + "9");
+                writeOnScreen(button9b);
             }
         });
 
-        final Button button0b = (Button) findViewById(R.id.button0);
+        final Button button0b = findViewById(R.id.button0);
         button0b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(equal){
-                    num1 = 0;
-                    num2 = 0;
-                    sign = 0;
-                    equal = false;
-                    prev.setText("");
-                }
-                if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".")){
-                    screen.setText("-0");
-                }//I - Infinity, N - NaN
-                else if (equal || screen.getText().toString().equals("0") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N")){
-                    screen.setText("0");
-                }
-                else
-                    screen.setText((screen.getText().toString()) + "0");
+                writeOnScreen(button0b);
             }
         });
 
-        final Button button00b = (Button) findViewById(R.id.button00);
+        final Button button00b = findViewById(R.id.button00);
         button00b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(equal){
-                    num1 = 0;
-                    num2 = 0;
-                    sign = 0;
-                    equal = false;
-                    prev.setText("");
+                String screenStr = screen.getText().toString();
+                if(repeat){
+                    clearMemory();
                 }
-                if(screen.getText().toString().contains("-0") && !screen.getText().toString().contains(".") || screen.getText().toString().equals("-")){
+                if(screenStr.contains("-0") && !screenStr.contains(".") || screenStr.equals("-")){
                     screen.setText("-0");
                 }//I - Infinity, N - NaN
-                else if (equal || screen.getText().toString().equals("0") || screen.getText().toString().equals("") || (screen.getText().toString()).contains("I") || (screen.getText().toString()).contains("N")){
+                else if (repeat || screenStr.equals("0") || screenStr.equals("") || screenStr.contains("I") || screenStr.contains("N")){
                     screen.setText("0");
                 }
                 else
-                    screen.setText((screen.getText().toString()) + "00");
+                    screen.setText(screenStr + "00");
             }
         });
 
-        final Button buttonc = (Button) findViewById(R.id.buttonc);
+        final Button buttonc = findViewById(R.id.buttonc);
         buttonc.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                String current = screen.getText().toString();
-                if  (!current.isEmpty()&&!current.equals("0")){
-                    if(equal){
-                        num1 = 0;
-                        num2 = 0;
-                        sign = 0;
-                        equal = false;
-                        prev.setText("");
+                String screenStr = screen.getText().toString();
+                if  (!screenStr.isEmpty()&&!screenStr.equals("0")){
+                    if(repeat){
+                        clearMemory();
                     }//I - Infinity, N - NaN
-                    if (current.contains("I") || current.contains("N") || current.contains("E") || current.equals("-"))
+                    if (screenStr.contains("I") || screenStr.contains("N") || screenStr.contains("E") || screenStr.equals("-") || screenStr.substring(0, screenStr.length()-1).equals("") )
                         screen.setText("0");
                     else
-                        screen.setText(current.substring(0, current.length()-1));
+                        screen.setText(screenStr.substring(0, screenStr.length()-1));
                 }
             }
         });
 
-        final Button buttonac = (Button) findViewById(R.id.buttonac);
+        final Button buttonac = findViewById(R.id.buttonac);
         buttonac.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 screen.setText("0");
-                prev.setText("");
-                num1 = 0;
-                num2 = 0;
-                sign = 0;
-                equal = false;
+                clearMemory();
             }
         });
 
-        final Button buttonplmin = (Button) findViewById(R.id.buttonplmin);
+        final Button buttonplmin = findViewById(R.id.buttonplmin);
         buttonplmin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                String current = screen.getText().toString();
-                if  (!current.isEmpty()){
-                    if(equal){
-                        num1 = 0;
-                        num2 = 0;
-                        sign = 0;
-                        equal = false;
-                        prev.setText("");
+                String screenStr = screen.getText().toString();
+                if(!screenStr.isEmpty()){
+                    if(repeat){
+                        clearMemory();
                     }
-                    if (current.substring(0, 1).contains("-"))
-                        screen.setText(current.substring(1, current.length()));
-                    else
-                        screen.setText("-" + current);
+                    if(screenStr.substring(0, 1).contains("-"))
+                        screen.setText(screenStr.substring(1));//Delete minus sign
+                    else if(!screenStr.contains("N"))
+                        screen.setText("-" + screenStr);
                 }
             }
         });
 
-        final Button buttonplus = (Button) findViewById(R.id.buttonplus);
+        final Button buttonplus = findViewById(R.id.buttonplus);
         buttonplus.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                String current = screen.getText().toString();
-                if  (!current.isEmpty() && !current.equals("-")){
-                    num1 = Float.parseFloat(current);
-                    sign = '+';
-                    equal = false;
-                    screen.setText("");
-                    prev.setText(String.valueOf(num1) + "+");
-                }
+                setSign('+');
             }
         });
 
-        final Button buttonmin = (Button) findViewById(R.id.buttonmin);
+        final Button buttonmin = findViewById(R.id.buttonmin);
         buttonmin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                String current = screen.getText().toString();
-                if  (!current.isEmpty() && !current.equals("-")){
-                    num1 = Float.parseFloat(current);
-                    sign = '-';
-                    equal = false;
-                    screen.setText("");
-                    prev.setText(String.valueOf(num1) + "-");
-                }
+                setSign('-');
             }
         });
 
-        final Button buttonmul = (Button) findViewById(R.id.buttonmul);
+        final Button buttonmul = findViewById(R.id.buttonmul);
         buttonmul.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                String current = screen.getText().toString();
-                if  (!current.isEmpty() && !current.equals("-")){
-                    num1 = Float.parseFloat(current);
-                    sign = '*';
-                    equal = false;
-                    screen.setText("");
-                    prev.setText(String.valueOf(num1) + "*");
-                }
+                setSign('*');
             }
         });
 
-        final Button buttondiv = (Button) findViewById(R.id.buttondiv);
+        final Button buttondiv = findViewById(R.id.buttondiv);
         buttondiv.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-
-                String current = screen.getText().toString();
-                if  (!current.isEmpty() && !current.equals("-")){
-                    num1 = Float.parseFloat(current);
-                    sign = '/';
-                    equal = false;
-                    screen.setText("");
-                    prev.setText(String.valueOf(num1) + "/");
-                }
+                setSign('/');
             }
         });
 
-        final Button buttonsqrt = (Button) findViewById(R.id.buttonsqrt);
-        buttonsqrt.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                String current = screen.getText().toString();
-                if  (!current.isEmpty() && !current.equals("-")){
-                    num1 = Float.parseFloat(current);
-                    prev.setText("Sqrt(" + String.valueOf(num1) + ")=");
-                    num1 = (float) Math.sqrt(num1);
-                    sign = 0;
-                    screen.setText(String.valueOf(num1));
-                }
-            }
-        });
-
-        final Button buttonpow = (Button) findViewById(R.id.buttonpow);
+        final Button buttonpow = findViewById(R.id.buttonpow);
         buttonpow.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                String current = screen.getText().toString();
-                if  (!current.isEmpty() && !current.equals("-")) {
-                    num1 = Float.parseFloat(current);
-                    sign = '^';
-                    equal = false;
-                    screen.setText("");
-                    prev.setText(String.valueOf(num1) + "^");
+                setSign('^');
+            }
+        });
+
+        final Button buttonsqrt = findViewById(R.id.buttonsqrt);
+        buttonsqrt.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                String screenStr = screen.getText().toString();
+                if  (!screenStr.isEmpty() && !screenStr.equals("-")){
+                    num1 = Float.parseFloat(screenStr);
+                    prev.setText("Sqrt(" + formatNumber(num1) + ")=");
+                    num1 = (float) Math.sqrt(num1);
+                    sign = 0;
+                    screen.setText(formatNumber(num1));
                 }
             }
         });
 
-        final Button buttondot = (Button) findViewById(R.id.buttondot);
+        final Button buttondot = findViewById(R.id.buttondot);
         buttondot.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                String current = screen.getText().toString();
-                if(equal){
-                    num1 = 0;
-                    num2 = 0;
-                    sign = 0;
-                    prev.setText("");
+                String screenStr = screen.getText().toString();
+                if(repeat){
+                    clearMemory();
                 }
-                if(current.isEmpty()){
+                if(screenStr.isEmpty()){
                     screen.setText("0.");
                 }
-                else if(current.equals("-")){
+                else if(screenStr.equals("-")){
                     screen.setText("-0.");
                 }
-                else if(!current.contains(".") && !current.contains("I") && !current.contains("N")){
-                    screen.setText(current + ".");
+                else if(!screenStr.contains(".") && !screenStr.contains("I") && !screenStr.contains("N")){
+                    screen.setText(screenStr + ".");
                 }
             }
         });
 
-        final Button buttonequal = (Button) findViewById(R.id.buttonequal);
+        final Button buttonequal = findViewById(R.id.buttonequal);
         buttonequal.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                String current = screen.getText().toString();
-                if  (current.isEmpty() || sign == 0)
-                    screen.setText(current);
+                String screenStr = screen.getText().toString();
+                if  (screenStr.isEmpty() || sign == 0)
+                    screen.setText(screenStr);
                 else {
-                    if (!equal)
-                        num2 = Float.parseFloat(current);
+                    if (!repeat)
+                        num2 = Float.parseFloat(screenStr);
                     float res = 0;
                     switch(sign){
                         case '+':
                             res = num1 + num2;
-                            prev.setText(String.valueOf(num1) + "+" + String.valueOf(num2) + "=");
+                            prev.setText(formatNumber(num1) + "+" + formatNumber(num2) + "=");
                             break;
                         case '-':
                             res = num1 - num2;
-                            prev.setText(String.valueOf(num1) + "-" + String.valueOf(num2) + "=");
+                            prev.setText(formatNumber(num1) + "-" + formatNumber(num2) + "=");
                             break;
                         case '*':
                             res = num1 * num2;
-                            prev.setText(String.valueOf(num1) + "*" + String.valueOf(num2) + "=");
+                            prev.setText(formatNumber(num1) + "*" + formatNumber(num2) + "=");
                             break;
                         case '/':
-                            if (num2 == 0) {
+                            if (num2 == 0) {//Protection against dividing by zero
                                 res = 0;
                             }
                             else {
                                 res = num1 / num2;
-                                prev.setText(String.valueOf(num1) + "/" + String.valueOf(num2) + "=");
+                                prev.setText(formatNumber(num1) + "/" + formatNumber(num2) + "=");
                             }
                             break;
                         case '^':
                             res = (float) Math.pow(num1, num2);
-                            prev.setText(String.valueOf(num1) + "^" + String.valueOf(num2) + "=");
+                            prev.setText(formatNumber(num1) + "^" + formatNumber(num2) + "=");
                             break;
                     }
                     num1 = res;
-                    screen.setText(String.valueOf(res));
-                    equal = true;
+                    screen.setText(formatNumber(res));
+                    if(sign != '/' && num2 != 0){
+                        repeat = true;
+                    }
                 }
             }
         });
     }
+
+    private String formatNumber(float num){
+        String str = "";
+        if(String.valueOf(num).endsWith(".0")){
+            str = String.valueOf(num).substring(0, String.valueOf(num).length()-2);
+        }
+        else{
+            str = String.valueOf(num);
+        }
+        return(str);
+    }
+
+    private void setSign(char signToSet){
+        String ScreenStr = screen.getText().toString();
+        if  (!ScreenStr.isEmpty() && !ScreenStr.equals("-")){
+            num1 = Float.parseFloat(ScreenStr);
+            sign = signToSet;
+            repeat = false;
+            screen.setText("");
+            prev.setText(formatNumber(num1) + sign);
+        }
+    }
+
+    private void clearMemory(){
+        num1 = 0;
+        num2 = 0;
+        sign = 0;
+        repeat = false;
+        prev.setText("");
+    }
+
+    private void writeOnScreen(Button button){
+        String buttonStr = button.getText().toString();
+        String screenStr = screen.getText().toString();
+        if(repeat){
+            clearMemory();
+        }
+        if(screenStr.contains("-0") && !screenStr.contains(".")){
+            screen.setText("-" + buttonStr);
+        }//I - Infinity, N - NaN
+        else if (repeat || screenStr.equals("0") || screenStr.contains("I") || screenStr.contains("N"))
+            screen.setText(buttonStr);
+        else
+            screen.setText(screenStr + buttonStr);
+    }
+
 }

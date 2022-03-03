@@ -49,44 +49,55 @@
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
+                android:layout_height="113dp"
                 android:background="@drawable/rounded_corner"
                 android:backgroundTint="#646464"
                 android:gravity="end"
                 android:text="0"
                 android:textAlignment="viewEnd"
                 android:textColor="#e6e6e6"
-                android:textSize="30sp"
+                android:textSize="44sp"
                 android:layout_marginTop="12dp"
                 android:paddingRight="6dp"
                 android:paddingLeft="6dp"/>
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/linearLayout10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/linearLayout3"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:orientation="vertical"
+            android:paddingBottom="8dp"
+            android:weightSum="6">
+
             <LinearLayout
                 android:id="@+id/linearLayout4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/linearLayout3"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
+                android:layout_height="0dp"
                 android:orientation="horizontal"
                 android:paddingTop="6dp"
                 android:paddingLeft="6dp"
-                android:paddingRight="6dp">
+                android:paddingRight="6dp"
+                android:layout_weight="1">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="13.30"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    tools:ignore="NestedWeights">
 
                     <Button
                         android:id="@+id/buttonequal"
                         android:layout_width="match_parent"
-                        android:layout_height="80dp"
+                        android:layout_height="0dp"
                         android:layout_weight="13.30"
                         android:insetLeft="6dp"
                         android:insetRight="6dp"
+                        android:textSize="18sp"
                         android:text="="
                         app:backgroundTint="@color/colorAccent" />
 
@@ -101,20 +112,22 @@
                     <Button
                         android:id="@+id/buttonac"
                         android:layout_width="wrap_content"
-                        android:layout_height="80dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:insetLeft="6dp"
                         android:insetRight="6dp"
+                        android:textSize="18sp"
                         android:text="AC"
                         app:backgroundTint="@color/colorAccent" />
 
                     <Button
                         android:id="@+id/buttonc"
                         android:layout_width="wrap_content"
-                        android:layout_height="80dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:insetLeft="6dp"
                         android:insetRight="6dp"
+                        android:textSize="18sp"
                         android:text="C"
                         app:backgroundTint="@color/colorAccent" />
                 </LinearLayout>
@@ -124,97 +137,107 @@
             <LinearLayout
                 android:id="@+id/linearLayout5"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_below="@+id/linearLayout4"
+                android:layout_above="@+id/linearLayout6"
                 android:layout_centerHorizontal="true"
                 android:orientation="horizontal"
                 android:paddingLeft="6dp"
-                android:paddingRight="6dp">
+                android:paddingRight="6dp"
+                android:layout_weight="1">
 
                 <Button
                     android:id="@+id/buttonplmin"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:insetLeft="6dp"
                     android:insetRight="6dp"
+                    android:textSize="18sp"
                     android:text="+/-" />
 
                 <Button
                     android:id="@+id/buttonsqrt"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:insetLeft="6dp"
                     android:insetRight="6dp"
+                    android:textSize="18sp"
                     android:text="\u221A" />
 
                 <Button
                     android:id="@+id/buttonpow"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:insetLeft="6dp"
                     android:insetRight="6dp"
+                    android:textSize="18sp"
                     android:text="^" />
 
                 <Button
                     android:id="@+id/buttondot"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:insetLeft="6dp"
                     android:insetRight="6dp"
+                    android:textSize="18sp"
                     android:text="." />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linearLayout6"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
+                android:layout_height="0dp"
                 android:layout_below="@+id/linearLayout5"
+                android:layout_above="@+id/linearLayout7"
                 android:orientation="horizontal"
                 android:paddingLeft="6dp"
-                android:paddingRight="6dp">
+                android:paddingRight="6dp"
+                android:layout_weight="1">
 
                 <Button
                     android:id="@+id/buttonplus"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:insetLeft="6dp"
                     android:insetRight="6dp"
+                    android:textSize="18sp"
                     android:text="+" />
 
                 <Button
                     android:id="@+id/button1"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:insetLeft="6dp"
                     android:insetRight="6dp"
+                    android:textSize="18sp"
                     android:text="1"
                     app:backgroundTint="@color/colorPrimaryLight" />
 
                 <Button
                     android:id="@+id/button2"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:insetLeft="6dp"
                     android:insetRight="6dp"
+                    android:textSize="18sp"
                     android:text="2"
                     app:backgroundTint="@color/colorPrimaryLight" />
 
                 <Button
                     android:id="@+id/button3"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:insetLeft="6dp"
                     android:insetRight="6dp"
+                    android:textSize="18sp"
                     android:text="3"
                     app:backgroundTint="@color/colorPrimaryLight" />
             </LinearLayout>
@@ -222,50 +245,54 @@
             <LinearLayout
                 android:id="@+id/linearLayout7"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
+                android:layout_height="0dp"
                 android:layout_below="@+id/linearLayout6"
+                android:layout_above="@+id/linearLayout8"
                 android:orientation="horizontal"
                 android:paddingLeft="6dp"
-                android:paddingRight="6dp">
+                android:paddingRight="6dp"
+                android:layout_weight="1">
 
                 <Button
                     android:id="@+id/buttonmin"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:insetLeft="6dp"
                     android:insetRight="6dp"
+                    android:textSize="18sp"
                     android:text="-" />
 
                 <Button
                     android:id="@+id/button4"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:insetLeft="6dp"
                     android:insetRight="6dp"
+                    android:textSize="18sp"
                     android:text="4"
                     app:backgroundTint="@color/colorPrimaryLight" />
 
                 <Button
                     android:id="@+id/button5"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:insetLeft="6dp"
                     android:insetRight="6dp"
+                    android:textSize="18sp"
                     android:text="5"
                     app:backgroundTint="@color/colorPrimaryLight" />
 
                 <Button
                     android:id="@+id/button6"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:insetLeft="6dp"
                     android:insetRight="6dp"
+                    android:textSize="18sp"
                     android:text="6"
                     app:backgroundTint="@color/colorPrimaryLight" />
             </LinearLayout>
@@ -273,86 +300,93 @@
             <LinearLayout
                 android:id="@+id/linearLayout8"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/linearLayout7"
                 android:orientation="horizontal"
                 android:paddingLeft="6dp"
-                android:paddingRight="6dp">
+                android:paddingRight="6dp"
+                android:layout_weight="1">
 
                 <Button
                     android:id="@+id/buttonmul"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:insetLeft="6dp"
                     android:insetRight="6dp"
+                    android:textSize="18sp"
                     android:text="*" />
 
                 <Button
                     android:id="@+id/button7"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:insetLeft="6dp"
                     android:insetRight="6dp"
+                    android:textSize="18sp"
                     android:text="7"
                     app:backgroundTint="@color/colorPrimaryLight" />
 
                 <Button
                     android:id="@+id/button8"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:insetLeft="6dp"
                     android:insetRight="6dp"
+                    android:textSize="18sp"
                     android:text="8"
                     app:backgroundTint="@color/colorPrimaryLight" />
 
                 <Button
                     android:id="@+id/button9"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:insetLeft="6dp"
                     android:insetRight="6dp"
+                    android:textSize="18sp"
                     android:text="9"
                     app:backgroundTint="@color/colorPrimaryLight" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
+                android:layout_height="0dp"
                 android:layout_below="@+id/linearLayout8"
                 android:orientation="horizontal"
                 android:paddingLeft="6dp"
-                android:paddingRight="6dp">
+                android:paddingRight="6dp"
+                android:layout_weight="1">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
 
                     <Button
                         android:id="@+id/buttondiv"
                         android:layout_width="wrap_content"
-                        android:layout_height="80dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:insetLeft="6dp"
                         android:insetRight="6dp"
+                        android:textSize="18sp"
                         android:text="/" />
 
                     <Button
                         android:id="@+id/button00"
                         android:layout_width="wrap_content"
-                        android:layout_height="80dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:insetLeft="6dp"
                         android:insetRight="6dp"
+                        android:textSize="18sp"
                         android:text="00"
                         app:backgroundTint="@color/colorPrimaryLight" />
 
@@ -367,13 +401,14 @@
                     <Button
                         android:id="@+id/button0"
                         android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:layout_weight="12.90"
+                        android:layout_height="match_parent"
                         android:insetLeft="6dp"
                         android:insetRight="6dp"
+                        android:textSize="18sp"
                         android:text="0"
                         app:backgroundTint="@color/colorPrimaryLight" />
                 </LinearLayout>
+            </LinearLayout>
             </LinearLayout>
     </RelativeLayout>
 
