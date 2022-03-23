@@ -11,9 +11,9 @@ Simple calculator app created in Android studio, that acts like a normal, non-sc
 ## Screenshots
 <h3 align="left">Application in portrait mode:</h3>
 <p align="center">
-<img align="center" src="https://dl.dropboxusercontent.com/s/9f65xqppor5gk7d/Screenshot_1639842834%2B.png" height="426" width="240">
+<img align="center" src="https://dl.dropbox.com/s/7w9k4q6y6ig8a7d/portrait%20mode.gif" height="385" width="240">
 </p>
 <h3 align="left">Application in landscape mode:</h3>
 <p align="center">
-<img align="center" src="https://dl.dropbox.com/s/a1jwvwuf11spoxm/Screenshot_1639842844%2B.png" height="240" width="426">
+<img align="center" src="https://dl.dropbox.com/s/8v2si744074hwiw/landscape%20mode.gif" height="240" width="424">
 </p>
